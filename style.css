@@ -7,137 +7,146 @@ Sometimes, when we stretch out to larger screens, we need to make minor tweaks f
 You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
 */
 
-
 /*********************************************************************
  LOADS IN A NICE RESET TO ENSURE ALL BROWSERS HAVE THE SAME BASE STYLES
 *********************************************************************/
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css");
 
 /*********************************************************************
   YOUR MOBILE/BASE STYLES GO HERE
 *********************************************************************/
 
-
 /** SET BORDER BOX EVERYWHERE */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /** APPLY BASE TAG STYLES */
 
 body,
 html {
-    /* Sets default font-size to 16px, ensuring 1em = 16px; */
-    font-size: 16px;
-    font-family: 'Oxygen', sans-serif;
+  /* Sets default font-size to 16px, ensuring 1em = 16px; */
+  font-size: 16px;
+  font-family: "Oxygen", sans-serif;
 }
-
 
 /** RESPONSIVE IMAGES */
 
 figure,
 img {
-    /* Sets image width to match parent */
-    width: 100%;
-    display: block;
-    margin: 0 auto;
+  /* Sets image width to match parent */
+  width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 p {
-    line-height: 1.5em;
+  line-height: 1.5em;
 }
 
 header {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 header p {
-    margin: 0;
+  margin: 0;
 }
-
 
 /** Caption styles */
 
 .caption,
 figcaption {
-    font-size: 0.9rem;
-    color: #8e8a8a;
-    padding: 5px 0;
+  font-size: 0.9rem;
+  color: #8e8a8a;
+  padding: 5px 0;
 }
 
-
 /** BASE CLASSES */
-
 
 /** Container styles to keep content from becoming too wide or coming too close to
 * mobile edge */
 
 .container {
-    width: 100%;
-    max-width: 800px;
-    padding: 10px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+  margin: 0 auto;
 }
-
 
 /** Images are allowed to be a little wider when broken out into their own container */
 
 .container.image {
-    max-width: 1200px;
-    padding: 0;
+  max-width: 1200px;
+  padding: 0;
 }
 
 .container.image .caption,
 .container.image figcaption {
-    padding: 5px 10px;
+  padding: 5px 10px;
 }
 
+.collage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/**
+Getting all elements with the class 'img' that are direct descendants of elements with the class 'collage'
+*/
+.collage > .img {
+  flex-basis: calc(50% - 2.5px);
+}
+
+/**
+Getting the first two elements with the class 'img' that are direct descendants of elements with the class 'collage'
+*/
+.collage > .img:nth-child(1),
+.collage > .img:nth-child(2) {
+  margin-bottom: 5px;
+}
 
 /*********************************************************************
   YOUR TABLET/DESKTOP STYLES GO HERE
 *********************************************************************/
 
-@media(min-width: 681px) {
-    /* Any adjustments for tablets and larger go here.
+@media (min-width: 681px) {
+  /* Any adjustments for tablets and larger go here.
     Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
 }
-
 
 /*********************************************************************
   YOUR DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
 
-@media(min-width: 769px) {
-    /* Any adjustments for desktop and larger go here.
+@media (min-width: 769px) {
+  /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 769px or larger -- so desktop */
 }
-
 
 /*********************************************************************
   YOUR MEDIUM-DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
 
-@media(min-width: 805px) {
-    /* Any adjustments for desktop and larger go here.
+@media (min-width: 805px) {
+  /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 769px or larger -- so desktop */
-    .container {
-        padding: 0;
-    }
+  .container {
+    padding: 0;
+  }
 }
-
 
 /*********************************************************************
   YOUR LARGE DESKTOP-ONLY STYLES GO HERE
 *********************************************************************/
 
-@media(min-width: 1205px) {
-    /* Any adjustments for desktop and larger go here.
+@media (min-width: 1205px) {
+  /* Any adjustments for desktop and larger go here.
     Note these styles will be applied to anything 769px or larger -- so desktop */
-    .container.image .caption,
-    .container.image figcaption {
-        padding: 5px 0;
-    }
+  .container.image .caption,
+  .container.image figcaption {
+    padding: 5px 0;
+  }
 }
